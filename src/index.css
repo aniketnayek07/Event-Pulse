@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Krona+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Krona+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-krona: "Krona One", "sans-serif";
+  --font-reddit: "Reddit Sans", "sans-serif";
+  --color-background : rgba(255,255,255,0.41);
+  --color-innerbg :rgba(255,255,255,0.41);
+  --color-button : rgba(30,3,156,0.8);
+  --color-buttonHover : rgba(85,61,219);
+  --color-footer : rgba(44,44,43,0.85);
+  --color-footerText : rgba(217,217,217,0.7);
+  
+ } 
+
+body{
+  overflow-x: hidden;
+  
+}
