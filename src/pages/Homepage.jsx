@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../components/HomePage/Navbar";
-import HeroSection from "../components/HomePage/HeroSection";
-import Features from "../components/HomePage/Features";
-import Pricing from "../components/HomePage/Pricing";
-import Footer from "../components/HomePage/Footer";
+import Navbar from "../components/Navbar";
+import HeroSection from "../components/HeroSection";
+import Features from "../components/Features";
+import Pricing from "../components/Pricing";
+import Footer from "../components/Footer";
 
 const Homepage = () => {
   return (

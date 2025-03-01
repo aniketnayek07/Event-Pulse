@@ -1,8 +1,8 @@
 import React from "react";
-import heroImg from "../../image/heroImg.gif";
-import Clubs from "../../image/Clubs.png";
-import Hackathon from "../../image/Hackathon.png"
-import Event from "../../image/Event.png";
+import heroImg from "../image/heroImg.gif";
+import Clubs from "../image/Clubs.png";
+import Hackathon from "../image/Hackathon.png"
+import Event from "../image/Event.png";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { HiMiniArrowTopRightOnSquare } from "react-icons/hi2";
 const HeroSection = () => {

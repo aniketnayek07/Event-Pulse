@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import features from "../../assets/featuresArray";
+import features from "../assets/featuresArray";
 const Features = () => {
   const [selectedFeature, setSelectedFeature] = useState(features[0]);
   return (
