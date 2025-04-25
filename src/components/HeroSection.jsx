@@ -1,11 +1,16 @@
 import React from "react";
 import heroImg from "../image/heroImg.gif";
 import Clubs from "../image/Clubs.png";
-import Hackathon from "../image/Hackathon.png"
+import Hackathon from "../image/Hackathon.png";
 import Event from "../image/Event.png";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { HiMiniArrowTopRightOnSquare } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 const HeroSection = () => {
+  const navigate = useNavigate();
+  const handleOrganizeClick = () => {
+    navigate("/OrganizeEvent");
+  };
   return (
     <>
       <div className="flex justify-center align-middle items-center mt-4 font-reddit px-10">
@@ -24,10 +29,16 @@ const HeroSection = () => {
               engagement
             </p>
             <div className="flex flex-row gap-2 w-full ">
-              <button className="w-[30%] p-2 bg-[#7266AA] flex flex-row justify-around align-middle items-center text-xl text-white font-medium rounded-2xl">
+              <button
+                className="cursor-pointer w-[30%] p-2 bg-[#7266AA] flex flex-row justify-around align-middle items-center text-xl text-white font-medium rounded-2xl hover:bg-buttonHover"
+                onClick={handleOrganizeClick}
+              >
                 Organize Event <FaLongArrowAltRight />
               </button>
-              <button className="w-[30%] p-2 bg-[#7266AA] flex flex-row justify-around align-middle items-center text-xl text-white font-medium rounded-2xl">
+              <button
+                className="cursor-pointer w-[30%] p-2 bg-[#7266AA] flex flex-row justify-around align-middle items-center text-xl text-white font-medium rounded-2xl hover:bg-buttonHover"
+                onClick={() => navigate("/JoinEvent")}
+              >
                 Join Any Event <FaLongArrowAltRight />
               </button>
             </div>
