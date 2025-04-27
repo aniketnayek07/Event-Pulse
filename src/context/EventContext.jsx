@@ -6,7 +6,7 @@ export const EventProvider = ({ children }) => {
   const [events, setEvents] = useState([]);
 
   const addEvent = (event) => {
-    setEvents((prev) => [...prev, event]);
+    setEvents([...events, event]);
   };
 
   return (
