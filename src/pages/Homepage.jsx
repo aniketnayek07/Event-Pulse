@@ -7,11 +7,17 @@ import Footer from "../components/Footer";
 
 const Homepage = () => {
   return (
-    <div className="w-screen h-full bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] ">
+    <div className="scroll-smooth w-screen h-full bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] ">
       <Navbar />
-      <HeroSection />
-      <Features />
-      <Pricing />
+      <section id="about">
+        <HeroSection />
+      </section>
+      <section id="features">
+        <Features />
+      </section>
+      <section id="pricing">
+        <Pricing />
+      </section>
       <Footer />
     </div>
   );

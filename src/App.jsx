@@ -5,7 +5,8 @@ import OrganizeEvent from "./pages/OrganizeEvent";
 import EventForm from "./pages/EventForm";
 import JoinEvent from "./pages/JoinEvent";
 import ThankYou from "./pages/ThankYou";
-import EventCard from "./pages/EventCard";
+import HackathonForm from "./pages/HackathonForm";
+import Events from "./pages/Events";
 function App() {
   return (
     <Router>
@@ -13,9 +14,20 @@ function App() {
         <Route path="/Home" element={<Homepage />} />
         <Route path="/OrganizeEvent" element={<OrganizeEvent />} />
         <Route path="/OrganizeEvent/Eventform" element={<EventForm />} />
+        <Route
+          path="/OrganizeEvent/Hackathonform"
+          element={<HackathonForm />}
+        />
         <Route path="/JoinEvent" element={<JoinEvent />} />
-        <Route path="/OrganizeEvent/Eventform/ThankYou" element={<ThankYou />} />
-
+        <Route
+          path="/OrganizeEvent/Eventform/ThankYou"
+          element={<ThankYou />}
+        />
+        <Route
+          path="/OrganizeEvent/Hackathonform/ThankYou"
+          element={<ThankYou />}
+        />
+        <Route path="/Events" element={<Events />} />
       </Routes>
     </Router>
   );

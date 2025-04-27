@@ -18,17 +18,12 @@ const ThankYou = () => {
           We’ll be contacting you shortly!
         </p>
         <div className="flex flex-row justify-between align-middle items-center gap-4">
+         
           <button
-            className="cursor-pointer bg-button hover:bg-buttonHover p-4 font-reddit text-white rounded-xl shadow-xl font-medium"
-            onClick={() => navigate("/OrganizeEvent/Eventform")}
-          >
-            Add new event
-          </button>
-          <button
-            className="cursor-pointer bg-button hover:bg-buttonHover p-4 font-reddit text-white rounded-xl shadow-xl font-medium"
+            className="cursor-pointer w-full  bg-button hover:bg-buttonHover p-4 font-reddit text-white rounded-xl shadow-xl font-medium"
             onClick={() => navigate("/JoinEvent")}
           >
-            Explore event
+            Explore events
           </button>
         </div>
       </div>

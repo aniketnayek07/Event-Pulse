@@ -49,14 +49,18 @@ const HeroSection = () => {
 
       <div className="w-full flex flex-row gap-4  mt-4 font-reddit px-10">
         <div
-          className=" w-1/3 h-64 bg-auto bg-center rounded-2xl px-8 py-4 "
+          className=" w-1/3 h-64 bg-auto bg-center rounded-2xl px-8 py-4 cursor-pointer "
           style={{ backgroundImage: `url(${Event})` }}
+          onClick={() => navigate("/Events")}
         >
           <div className="flex flex-row justify-between align-middle items-center">
             <div className=" w-1/4 p-1 rounded-2xl text-xl bg-innerbg text-center font-medium">
               <p>Events</p>
             </div>
-            <HiMiniArrowTopRightOnSquare className="text-3xl" />
+            <HiMiniArrowTopRightOnSquare
+              className="cursor-pointer text-3xl hover:text-gray-500"
+              onClick={() => navigate("/Events")}
+            />
           </div>
           <div className="w-full bg-innerbg text-center rounded-xl font-medium p-8 mt-8 text-xl">
             <p>
@@ -74,7 +78,7 @@ const HeroSection = () => {
             <div className=" w-1/4 p-1.5 rounded-2xl text-xl bg-innerbg text-center font-medium">
               <p>Hackathon</p>
             </div>
-            <HiMiniArrowTopRightOnSquare className="text-3xl" />
+            <HiMiniArrowTopRightOnSquare className="cursor-pointer text-3xl hover:text-gray-500" />
           </div>
           <div className="w-full bg-innerbg text-center rounded-xl font-medium p-8 mt-8 text-xl">
             <p>
@@ -92,7 +96,7 @@ const HeroSection = () => {
             <div className=" w-1/4 p-1 rounded-2xl text-xl bg-innerbg text-center font-medium">
               <p>Clubs</p>
             </div>
-            <HiMiniArrowTopRightOnSquare className="text-3xl" />
+            <HiMiniArrowTopRightOnSquare className="cursor-pointer text-3xl hover:text-gray-500" />
           </div>
           <div className="w-full bg-innerbg text-center rounded-xl font-medium p-8 mt-8 text-xl">
             <p>

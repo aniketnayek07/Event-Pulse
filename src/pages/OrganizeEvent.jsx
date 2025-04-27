@@ -63,7 +63,7 @@ const OrganizeEvent = () => {
       </div>
       {isModalOpen && (
         <div className="absolute inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-modal rounded-lg shadow-xl max-w-3xl w-full p-6 absolute">
+          <div className="bg-backgroundModal rounded-lg shadow-xl max-w-3xl w-full p-6 absolute">
             <button
               className="cursor-pointer absolute top-4 right-4 text-center text-red-500 text-2xl"
               onClick={isCLose}
