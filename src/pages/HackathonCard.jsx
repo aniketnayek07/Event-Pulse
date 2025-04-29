@@ -1,8 +1,24 @@
 import React from "react";
+import { useEffect } from "react";
 import { useHackathons } from "../context/HackathonContext";
 import { IoIosLink } from "react-icons/io";
+import axios from "axios";
 const HackathonCard = () => {
-  const { hackathons } = useHackathons();
+  const { hackathons, setHackathons } = useHackathons();
+  useEffect(() => {
+    const fetchHackathons = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/api/addHackathon"
+        );
+        setHackathons(response.data); // Save data into context
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+
+    fetchHackathons();
+  }, [setHackathons]);
   return (
     <div>
       {hackathons.length === 0 ? (
@@ -41,11 +57,21 @@ const HackathonCard = () => {
                   <div className="bg-gray-200 rounded-xl w-fit p-2">
                     {event.status}
                   </div>
-                  <div className="bg-gray-200 rounded-xl w-fit p-2">
-                    {event.registration}
+                  <div
+                    className={`rounded-xl text-center w-fit p-2 font-bold ${
+                      event.registration
+                        ? "bg-green-100 text-green-800"
+                        : "bg-red-100 text-red-800"
+                    }`}
+                  >
+                    {event.registration ? "OPEN" : "CLOSED"}
                   </div>
                   <div className="bg-gray-200 rounded-xl w-fit p-2">
-                    {event.date}
+                    {new Date(event.date).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
                   </div>
                 </div>
                 <button className="cursor-pointer bg-button py-2 px-4 rounded-xl text-white hover:bg-buttonHover">

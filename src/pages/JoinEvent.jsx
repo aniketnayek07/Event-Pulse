@@ -8,8 +8,8 @@ const JoinEvent = () => {
   const tabs = ["Events", "Hackathons"];
 
   return (
-    <div className="w-full h-screen  bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] py-8 px-14 ">
-      <div className="w-full flex justify-center align-middle items-center ">
+    <div className="min-h-screen  bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] py-8 px-14 ">
+      <div className="w-full  flex justify-center align-middle items-center ">
         <h1 className="tracking-[1em] font-krona">EVENT PULSE</h1>
       </div>
       <div className="p-8">

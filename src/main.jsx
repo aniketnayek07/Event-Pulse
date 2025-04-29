@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { ClerkProvider } from "@clerk/clerk-react";
+
 import { EventProvider } from "./context/EventContext.jsx";
 import { HackathonProvider } from "./context/HackathonContext.jsx";
 import App from "./App.jsx";
@@ -15,7 +16,7 @@ createRoot(document.getElementById("root")).render(
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/home">
       <EventProvider>
         <HackathonProvider>
-          <App />
+            <App />
         </HackathonProvider>
       </EventProvider>
     </ClerkProvider>

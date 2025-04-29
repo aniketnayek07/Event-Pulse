@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useEvents } from "../context/EventContext";
 import { IoIosLink } from "react-icons/io";
+import axios from "axios";
 const EventCard = () => {
-  const { events } = useEvents();
+  const { events, setEvents } = useEvents();
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/api/active-events"
+        );
+        setEvents(response.data); // Save data into context
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+
+    fetchEvents();
+  }, [setEvents]);
   return (
     <div>
       {events.length === 0 ? (
@@ -10,7 +25,7 @@ const EventCard = () => {
           🎉 Events will be added soon. Stay tuned!
         </div>
       ) : (
-        <div className="w-full grid grid-cols-3 gap-6 font-reddit">
+        <div className="w-full h-fit grid grid-cols-3 gap-6 font-reddit">
           {events.map((event, index) => (
             <div key={index} className="bg-white p-6 rounded-lg">
               <div className="flex flex-row justify-between align-middle items-center">
@@ -36,7 +51,11 @@ const EventCard = () => {
               <div className="flex flex-row justify-between align-middle items-center mt-6">
                 <div className="flex flex-row gap-2">
                   <div className="bg-gray-200 rounded-xl w-fit p-2">
-                    {event.date}
+                    {new Date(event.date).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
                   </div>
                 </div>
                 <button className="cursor-pointer bg-button py-2 px-4 rounded-xl text-white hover:bg-buttonHover">

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import EventManagement from "../image/EventManagement.gif";
-import { useHackathons } from "../context/HackathonContext";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const HackathonForm = () => {
   const navigate = useNavigate();
-  const { addHackathon } = useHackathons();
-  const [formData, setformData] = useState({
+
+  const [hackathonformData, setformData] = useState({
     eventName: "",
     organizerName: "",
     date: "",
@@ -19,12 +19,25 @@ const HackathonForm = () => {
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setformData({ ...formData, [name]: value });
+    setformData({ ...hackathonformData, [name]: value });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    addHackathon(formData);
-    navigate("/OrganizeEvent/Hackathonform/ThankYou");
+    const formattedData = {
+      ...hackathonformData,
+      date: new Date(hackathonformData.date), // convert to Date object
+      registration:
+        hackathonformData.registration === "true" ||
+        hackathonformData.registration === true, // convert to Boolean
+      expectedParticipants:
+        parseInt(hackathonformData.expectedParticipants, 10) || 0,
+    };
+    try {
+      await axios.post("http://localhost:5000/api/hackathon", formattedData);
+      navigate("/OrganizeEvent/Eventform/ThankYou");
+    } catch (error) {
+      console.error("Failed to submit event", error);
+    }
   };
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] py-4 px-14 ">
@@ -43,7 +56,7 @@ const HackathonForm = () => {
               <input
                 name="eventName"
                 placeholder="Event Name"
-                value={formData.eventName}
+                value={hackathonformData.eventName}
                 onChange={handleChange}
                 className="w-full p-2 border rounded"
                 required
@@ -54,7 +67,7 @@ const HackathonForm = () => {
               <input
                 name="organizerName"
                 placeholder="Organizer Name"
-                value={formData.organizerName}
+                value={hackathonformData.organizerName}
                 onChange={handleChange}
                 className="w-full p-2 border rounded"
                 required
@@ -65,7 +78,7 @@ const HackathonForm = () => {
               <input
                 name="date"
                 type="date"
-                value={formData.date}
+                value={hackathonformData.date}
                 onChange={handleChange}
                 className="w-full p-2 border rounded"
                 required
@@ -76,7 +89,7 @@ const HackathonForm = () => {
               <input
                 name="location"
                 placeholder="Location"
-                value={formData.location}
+                value={hackathonformData.location}
                 onChange={handleChange}
                 className="w-full p-2 border rounded"
                 required
@@ -87,7 +100,7 @@ const HackathonForm = () => {
               <textarea
                 name="description"
                 placeholder="Description"
-                value={formData.description}
+                value={hackathonformData.description}
                 onChange={handleChange}
                 className="w-full p-2 border rounded"
                 required
@@ -98,7 +111,7 @@ const HackathonForm = () => {
               <input
                 name="email"
                 placeholder="Email"
-                value={formData.email}
+                value={hackathonformData.email}
                 onChange={handleChange}
                 className="w-full p-2 border rounded"
                 required
@@ -111,7 +124,7 @@ const HackathonForm = () => {
                 </label>
                 <select
                   name="theme"
-                  value={formData.theme}
+                  value={hackathonformData.theme}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
@@ -130,7 +143,7 @@ const HackathonForm = () => {
                 <input
                   type="number"
                   name="expectedParticipants"
-                  value={formData.expectedParticipants}
+                  value={hackathonformData.expectedParticipants}
                   onChange={handleChange}
                   min="0"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -145,7 +158,7 @@ const HackathonForm = () => {
                 </label>
                 <select
                   name="status"
-                  value={formData.status}
+                  value={hackathonformData.status}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
@@ -160,7 +173,7 @@ const HackathonForm = () => {
                 </label>
                 <select
                   name="registration"
-                  value={formData.registration}
+                  value={hackathonformData.registration}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >

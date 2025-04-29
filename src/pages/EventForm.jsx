@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EventManagement from "../image/EventManagement.gif";
 import { useEvents } from "../context/EventContext";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 const EventForm = () => {
   const navigate = useNavigate();
   const { addEvent } = useEvents();
@@ -21,10 +22,14 @@ const EventForm = () => {
     const { name, value } = e.target;
     setformData({ ...formData, [name]: value });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    addEvent(formData);
-    navigate("/OrganizeEvent/Eventform/ThankYou");
+    try {
+      await axios.post("http://localhost:5000/api/events", formData);
+      navigate("/OrganizeEvent/Eventform/ThankYou");
+    } catch (error) {
+      console.error("Failed to submit event", error);
+    }
   };
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] py-4 px-14 ">

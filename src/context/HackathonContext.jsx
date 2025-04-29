@@ -10,7 +10,7 @@ export const HackathonProvider = ({ children }) => {
   };
 
   return (
-    <HackathonContext.Provider value={{ hackathons, addHackathon }}>
+    <HackathonContext.Provider value={{ hackathons, setHackathons }}>
       {children}
     </HackathonContext.Provider>
   );

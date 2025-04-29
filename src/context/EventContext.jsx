@@ -10,7 +10,7 @@ export const EventProvider = ({ children }) => {
   };
 
   return (
-    <EventContext.Provider value={{ events, addEvent }}>
+    <EventContext.Provider value={{ events, setEvents }}>
       {children}
     </EventContext.Provider>
   );
