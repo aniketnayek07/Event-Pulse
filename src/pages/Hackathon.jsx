@@ -1,12 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import EventPage from "../image/EventPage.png";
 import { FaInstagramSquare } from "react-icons/fa";
 import { BsDiscord } from "react-icons/bs";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { IoLogoYoutube } from "react-icons/io";
-
-const Events = () => {
+import HackathonPage from "../image/HackathonPage.png";
+const Hackathon = () => {
   const navigate = useNavigate();
   return (
     <div className="w-full h-screen bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] py-8 px-14">
@@ -21,7 +20,7 @@ const Events = () => {
       <div className="h-fit w-full p-10 mt-10 bg-background rounded-xl shadow-xl flex flex-row justify-between items-center align-middle font-reddit ">
         <div className="w-1/2 flex flex-col">
           <h1 className="text-5xl font-bold">Join and Build Events</h1>
-          <p className="mt-4 font-medium text-xl text-gray-700">
+          <p className="mt-4 font-bold text-xl text-gray-700">
             Build. Innovate. Win. With EventPulse
           </p>
           <p className="mt-4 text-xl text-gray-700">
@@ -41,7 +40,7 @@ const Events = () => {
           </button>
         </div>
         <div className=" text-center ">
-          <img src={EventPage} alt="enjoy" className="w-[0.5] h-96" />
+          <img src={HackathonPage} alt="enjoy" className="w-[0.8] h-96" />
         </div>
       </div>
       <div className="fixed bottom-4 right-8 flex flex-col  gap-2 text-footerText">
@@ -57,4 +56,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default Hackathon;

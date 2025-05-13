@@ -25,8 +25,8 @@ const Features = () => {
             </div>
           </div>
         </div>
-        <div className="px-24">
-          <div className="w-full bg-background px-20 py-3 rounded-2xl flex flex-row justify-between align-middle items-center text-center font-krona">
+        <div className="px-24 flex justify-center align-middle items-center">
+          <div className="w-fit bg-background px-20 py-3 rounded-2xl flex flex-row justify-center gap-14 align-middle items-center text-center font-krona">
             <h5
               className="cursor-pointer hover:bg-[rgba(255,255,255,0.5)] rounded-xl  px-8"
               onClick={() => setSelectedFeature(features[0])}
@@ -40,30 +40,30 @@ const Features = () => {
               REAL TIME <br />
               MONITORING
             </h5>
-            <h5
+            {/* <h5
               className="cursor-pointer hover:bg-[rgba(255,255,255,0.5)] rounded-xl  px-4"
               onClick={() => setSelectedFeature(features[2])}
             >
               AUTOMATED
               <br />
               CERTIFICATE
-            </h5>
+            </h5> */}
             <h5
               className="cursor-pointer hover:bg-[rgba(255,255,255,0.5)] rounded-xl  px-4"
-              onClick={() => setSelectedFeature(features[3])}
+              onClick={() => setSelectedFeature(features[2])}
             >
               SOCIAL
               <br />
               SHARINGS
             </h5>
-            <h5
+            {/* <h5
               className="cursor-pointer hover:bg-[rgba(255,255,255,0.5)] rounded-xl  px-4"
               onClick={() => setSelectedFeature(features[4])}
             >
               ANALYTICS
               <br />
               DASHBOARD
-            </h5>
+            </h5> */}
           </div>
         </div>
       </div>

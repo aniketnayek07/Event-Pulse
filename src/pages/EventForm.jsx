@@ -33,7 +33,12 @@ const EventForm = () => {
   };
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] py-4 px-14 ">
-      <h2 className="tracking-[1em] font-krona text-center ">EVENTPULSE</h2>
+      <h2
+        className="cursor-pointer tracking-[1em] font-krona text-center "
+        onClick={() => navigate("/")}
+      >
+        EVENTPULSE
+      </h2>
       <div className="w-full  flex flex-row justify-between align-middle items-center ">
         <div className="w-1/2 mt-6">
           <form

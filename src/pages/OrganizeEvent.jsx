@@ -25,7 +25,12 @@ const OrganizeEvent = () => {
   return (
     <div className="w-full h-screen  bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] py-8 px-14 ">
       <div className="w-full flex justify-center align-middle items-center ">
-        <h1 className="tracking-[1em] font-krona">EVENT PULSE</h1>
+        <h1
+          className="cursor-pointer tracking-[1em] font-krona"
+          onClick={() => navigate("/")}
+        >
+          EVENT PULSE
+        </h1>
       </div>
       <div className="w-full flex justify-between align-middle items-center mt-10  font-reddit">
         <div className="w-screen bg-background rounded-2xl px-8 py-14 flex flex-row justify-between ">

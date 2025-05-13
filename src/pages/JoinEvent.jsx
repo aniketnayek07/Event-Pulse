@@ -1,16 +1,23 @@
 import { useState } from "react";
 import EventCard from "./EventCard";
 import HackathonCard from "./HackathonCard";
-
+import { useNavigate } from "react-router-dom";
 const JoinEvent = () => {
   const [activeTab, setActiveTab] = useState("Events");
-
+  const navigate = useNavigate();
   const tabs = ["Events", "Hackathons"];
 
   return (
     <div className="min-h-screen  bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] py-8 px-14 ">
       <div className="w-full  flex justify-center align-middle items-center ">
-        <h1 className="tracking-[1em] font-krona">EVENT PULSE</h1>
+        <h1
+          className="cursor-pointer tracking-[1em] font-krona"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          EVENT PULSE
+        </h1>
       </div>
       <div className="p-8">
         <div className="flex  space-x-4 p-2 rounded-lg">

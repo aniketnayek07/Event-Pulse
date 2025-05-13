@@ -8,7 +8,12 @@ const ThankYou = () => {
   const navigate = useNavigate();
   return (
     <div className="w-full h-screen bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] py-8 px-14 ">
-      <h2 className="tracking-[1em] font-krona text-center">EVENTPULSE</h2>
+      <h2
+        className="cursor-pointer tracking-[1em] font-krona text-center"
+        onClick={() => navigate("/")}
+      >
+        EVENTPULSE
+      </h2>
       <div className="flex flex-col justify-center align-middle items-center gap-6 mt-20 ">
         <p className="text-6xl">👍</p>
         <h1 className="text-4xl font-reddit">Thank You!!</h1>
@@ -18,7 +23,6 @@ const ThankYou = () => {
           We’ll be contacting you shortly!
         </p>
         <div className="flex flex-row justify-between align-middle items-center gap-4">
-         
           <button
             className="cursor-pointer w-full  bg-button hover:bg-buttonHover p-4 font-reddit text-white rounded-xl shadow-xl font-medium"
             onClick={() => navigate("/JoinEvent")}

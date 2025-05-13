@@ -25,12 +25,10 @@ const HackathonForm = () => {
     e.preventDefault();
     const formattedData = {
       ...hackathonformData,
-      date: new Date(hackathonformData.date), // convert to Date object
-      registration:
-        hackathonformData.registration === "true" ||
-        hackathonformData.registration === true, // convert to Boolean
+      date: new Date(hackathonformData.date),
       expectedParticipants:
         parseInt(hackathonformData.expectedParticipants, 10) || 0,
+      registration: Boolean(hackathonformData.registration), // just in case
     };
     try {
       await axios.post("http://localhost:5000/api/hackathon", formattedData);
@@ -41,7 +39,12 @@ const HackathonForm = () => {
   };
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#AEB2DA] via-[#9A92C5] to-[#7266AA] py-4 px-14 ">
-      <h2 className="tracking-[1em] font-krona text-center ">EVENTPULSE</h2>
+      <h2
+        className="cursor-pointer tracking-[1em] font-krona text-center"
+        onClick={() => navigate("/")}
+      >
+        EVENTPULSE
+      </h2>
       <div className="w-full  flex flex-row justify-between align-middle items-center ">
         <div className="w-1/2 mt-6">
           <form
@@ -174,11 +177,16 @@ const HackathonForm = () => {
                 <select
                   name="registration"
                   value={hackathonformData.registration}
-                  onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  onChange={(e) =>
+                    setformData({
+                      ...hackathonformData,
+                      registration: e.target.value === "true", // force conversion to boolean
+                    })
+                  }
                 >
-                  <option value={true}>OPEN</option>
-                  <option value={false}>CLOSED</option>
+                  <option value="true">OPEN</option>
+                  <option value="false">CLOSED</option>
                 </select>
               </div>
             </div>
